@@ -141,6 +141,7 @@
     <string name="batch_process_confirm_delete">确认删除这%d张图片及人脸特征？</string>
     <string name="batch_process_batch_register">批量注册</string>
     <string name="batch_process_notification">提示</string>
+    <string name="batch_process_begin_register">开始注册</string>
     <string name="batch_process_clear_faces">清空人脸库</string>
     <string name="batch_face_clear_tip">%d个人脸特征已被删除！</string>
     <string name="batch_process_path_is_not_exists">路径 \n%s\n 不存在</string>
