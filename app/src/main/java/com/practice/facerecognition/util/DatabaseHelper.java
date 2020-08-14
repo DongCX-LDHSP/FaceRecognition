@@ -11,11 +11,59 @@ import io.reactivex.annotations.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     /**
+     * - ApiInfo(appId:text, sdkKey:text)
      * - Users(sNum:text, password:text, isAdmin:text(值为0或1，1表示管理员))
      * - Students(studentNum:text, name:text, classNum:text, dormitoryNum:text, roomNum:text)
      * - FaceInfo(id:Integer, studentNum:text)
      * - SignResults(id:Integer, studentNum:text, time:text("xxxx-xx-xx xx:xx:xx"), result:text(0或1，默认值0表示缺勤))
      */
+
+    // 创建人脸识别API信息表
+    private String createApiInfoTableSql =
+            "Create Table ApiInfo(" +
+                    "appId text Not Null, " +
+                    "sdkKey text Not Null)";
+
+    // 创建用户信息表
+    private String createUserInfoTableSql =
+            "Create Table Users(" +
+                    "sNum text Primary Key, " +
+                    "password text Not Null, " +
+                    "isAdmin text Not Null)";
+
+    // 创建学生信息表
+    private String createStudentInfoSql =
+            "Create Table Students(" +
+                    "studentNum text Primary Key, " +
+                    "name text Not Null," +
+                    "classNum text Not Null," +
+                    "dormitoryNum text Not Null," +
+                    "roomNum text Not Null)";
+
+    // 创建签到结果表
+    private String createSignResultTableSql =
+            "Create Table SignResults(" +
+                    "id Integer Primary Key AutoIncrement," +
+                    "studentNum text Not Null, " +
+                    "time text Not Null, " +
+                    "result text Default \"0\")";
+
+    // 创建人脸信息表
+    private String createFaceInfoSql =
+            "Create Table FaceInfo(" +
+                    "id Integer Primary Key AutoIncrement, " +
+                    "studentNum text Not Null, " +
+                    "Foreign Key(studentNum) References Students(studentNum))";
+
+    // 插入API信息
+    private String insertApiInfoSql =
+            "Insert Into ApiInfo(" +
+                    "appId, " +
+                    "sdkKey) " +
+                    "Values(?, ?)";
+
+    // 清空API信息表
+    private String clearApiInfoSql = "Delete From ApiInfo";
 
     // 插入用户信息
     public String insertUserInfoSql =
@@ -88,8 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "Where studentNum = ?";
 
     // 清空人脸信息表的内容
-    private String clearFaceInfoSql =
-            "Delete From FaceInfo";
+    private String clearFaceInfoSql = "Delete From FaceInfo";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "FaceRecognition.db", null, 1);
@@ -97,45 +144,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        // 创建人脸识别API信息表
+        sqLiteDatabase.execSQL(createApiInfoTableSql);
+
         // 创建用户信息表
-        String createUserInfoTableSql =
-                "Create Table Users(" +
-                        "sNum text Primary Key, " +
-                        "password text Not Null, " +
-                        "isAdmin text Not Null)";
         sqLiteDatabase.execSQL(createUserInfoTableSql);
+
+        // 创建学生信息表
+        sqLiteDatabase.execSQL(createStudentInfoSql);
+
+        // 创建人脸信息表
+        sqLiteDatabase.execSQL(createFaceInfoSql);
+
+        // 创建签到结果表
+        sqLiteDatabase.execSQL(createSignResultTableSql);
 
         // 创建管理员账户
         createAdmin(sqLiteDatabase);
 
-        // 创建学生信息表
-        String createStudentInfoSql =
-                "Create Table Students(" +
-                        "studentNum text Primary Key, " +
-                        "name text Not Null," +
-                        "classNum text Not Null," +
-                        "dormitoryNum text Not Null," +
-                        "roomNum text Not Null)";
-        sqLiteDatabase.execSQL(createStudentInfoSql);
-
-        // 创建人脸信息表
-        String createFaceInfoSql =
-                "Create Table FaceInfo(" +
-                        "id Integer Primary Key AutoIncrement, " +
-                        "studentNum text Not Null, " +
-                        "Foreign Key(studentNum) References Students(studentNum))";
-        sqLiteDatabase.execSQL(createFaceInfoSql);
-
-        // 创建签到结果表
-        String createCheckingInTableSql =
-                "Create Table SignResults(" +
-                        "id Integer Primary Key AutoIncrement," +
-                        "studentNum text Not Null, " +
-                        "time text Not Null, " +
-                        "result text Default \"0\")";
-        sqLiteDatabase.execSQL(createCheckingInTableSql);
-
-        // todo 测试语句，注意删除
+        // todo 插入一些测试数据，测试语句，注意删除
         createTestInfo(sqLiteDatabase);
 
         Log.d("DatabaseHelper","onCreate");
@@ -144,6 +171,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    public void updateApiInfo(String appId, String sdkKey) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(clearApiInfoSql);
+        db.execSQL(insertApiInfoSql, new String[]{appId, sdkKey});
+        db.close();
     }
 
     // 在内部创建管理员账户
