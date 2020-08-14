@@ -91,11 +91,24 @@ public class ManagerMainActivity extends AppCompatActivity {
 
     // 响应批量注册按钮 -> 批量注册界面
     public void faceManageButtonClick(View view) {
-        Intent jumpToFaceManageActivity = new Intent();
-        jumpToFaceManageActivity.setClass(
-                ManagerMainActivity.this,
-                FaceManageActivity.class);
-        startActivity(jumpToFaceManageActivity);
+        DatabaseHelper dbHelper = new DatabaseHelper(ManagerMainActivity.this);
+        String isActivated = dbHelper.getApiInfo()[2];
+
+        // 未激活则不转入
+        if (isActivated.equals("0")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("引擎尚未激活，请激活引擎后再操作！")
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
+        }
+        else {
+            Intent jumpToFaceManageActivity = new Intent();
+            jumpToFaceManageActivity.setClass(
+                    ManagerMainActivity.this,
+                    FaceManageActivity.class);
+            startActivity(jumpToFaceManageActivity);
+        }
     }
 
     // 学生信息添加按钮事件

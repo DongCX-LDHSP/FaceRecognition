@@ -45,9 +45,6 @@ public class MainActivity extends AppCompatActivity {
         loginStudentNum = receiveIntent.getStringExtra("username");
     }
 
-    // Ctrl + O 呼出选择重写某一方法的对话框
-    // 直接输入方法名就可以进行搜索
-
     // 跳转到查看签到记录界面
     public void lookHistoryButtonClick(View view) {
         Toast.makeText(MainActivity.this, "查看签到记录", Toast.LENGTH_LONG).show();
@@ -59,17 +56,25 @@ public class MainActivity extends AppCompatActivity {
         startActivity(jumpToLookHistoryActivity);
     }
 
-    // todo 人脸签到代码块 - 1 start
     // 人脸签到界面
     public void faceRecognizeButtonClick(View view) {
         DatabaseHelper dbHelper = new DatabaseHelper(this);
+        String isActivated = dbHelper.getApiInfo()[2];
 
         // 获取今天的日期
         @SuppressLint("SimpleDateFormat") String date =
                 new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
+        // 尚未激活引擎，不能签到
+        if (isActivated.equals("0")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("引擎尚未激活，请联系管理员激活！")
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
+        }
         // 若尚未签到则跳转到人脸签到界面
-        if (!dbHelper.isAlreadySignIn(loginStudentNum, date)) {
+        else if (!dbHelper.isAlreadySignIn(loginStudentNum, date)) {
             Intent jumpToRecognizeAndRegisterActivity = new Intent();
             jumpToRecognizeAndRegisterActivity.setClass(
                     MainActivity.this,
@@ -86,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         }
     }
-    // todo 人脸签到代码块 - 1 end
 
     public void loginOutButtonClick(View view) {
         Intent jumpToLookResultActivity = new Intent();
