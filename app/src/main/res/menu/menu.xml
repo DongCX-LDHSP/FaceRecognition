@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/activateEngine"
+        android:title="@string/home_activate_engine_text" />
+    <item android:id="@+id/studentInfo"
+        android:title="@string/home_student_info_text" />
+    <item android:id="@+id/faceManage"
+        android:title="@string/home_face_manage_text" />
+</menu>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="45dp"
+    android:layout_marginRight="8dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/stu_no"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:contentDescription="@string/stu_no"
+        android:gravity="center"
+        android:text="@string/stu_no"
+        android:textColor="#2196F3"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/stu_name"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/stu_name"
+        android:textColor="#2196F3"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/stu_room"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/stu_room"
+        android:gravity="center"
+        android:text="@string/stu_room"
+        android:textColor="#2196F3"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvSignIn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/stu_singInResult"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:scaleType="fitEnd"
+        app:srcCompat="@drawable/arrow" />
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_tip_text_content"
+        android:textSize="30sp"
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp" />
+
+    <ImageView
+        android:id="@+id/iconImageView"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/timg"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tipTextView"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iconImageView"
+        android:layout_marginHorizontal="80dp"
+        android:ems="12"
+        android:inputType="number"
+        android:hint="@string/login_username_text"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@android:drawable/ic_menu_my_calendar" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/usernameEditText"
+        android:layout_marginHorizontal="80dp"
+        android:ems="12"
+        android:inputType="textWebPassword"
+        android:hint="@string/login_password_text"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@android:drawable/ic_menu_agenda" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/passwordEditText"
+        android:text="@string/login_button_name"
+        android:textSize="20sp"
+        android:letterSpacing="1.5"
+        android:onClick="loginButtonClick"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"/>
+
+    <Button
+        android:id="@+id/forgetPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="找回密码？"
+        android:background="@android:color/transparent"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:onClick="forgetPasswordClick"
+        android:layout_marginEnd="80dp"
+        android:textColor="#1971C4"
+        android:layout_below="@id/passwordEditText"/>
+
+</RelativeLayout>

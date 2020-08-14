@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_tip_text_content"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <!--签到按钮-->
+    <Button
+        android:id="@+id/faceRecognize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/face_recognize_text"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:background="@drawable/circle_button"
+        android:onClick="faceRecognizeButtonClick" />
+
+    <!--查看签到记录按钮-->
+    <Button
+        android:id="@+id/lookHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/faceRecognize"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/check_history_text"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:background="@drawable/circle_button"
+        android:onClick="lookHistoryButtonClick"/>
+
+    <!--退出登录按钮-->
+    <Button
+        android:id="@+id/loginOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lookHistory"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/login_out_text"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:background="@drawable/circle_button"
+        android:onClick="loginOutButtonClick" />
+
+</RelativeLayout>

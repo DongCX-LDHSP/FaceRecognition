@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".lookHistoryActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/historyTitle"
+            android:text="签到记录"
+            android:textSize="28dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000"
+            android:layout_marginRight="500dp"
+            android:layout_marginTop="20dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="00dp"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="#FFCDCACA"
+        app:layout_constraintBottom_toTopOf="@+id/infoListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvSignTime"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:gravity="left"
+            android:text="@string/stu_singInTime"
+            android:textSize="16sp"
+            tools:text="签到时间" />
+        <TextView
+            android:id="@+id/stu_name"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:textColor="#000"
+            android:text="@string/stu_name"
+            android:textSize="16sp"
+            tools:text="姓名" />
+
+        <TextView
+            android:id="@+id/stu_status"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/stu_no"
+            android:gravity="left"
+            android:textColor="#000"
+            android:text="@string/status"
+            android:textSize="16sp"
+            tools:text="签到状态" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/HistoryListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

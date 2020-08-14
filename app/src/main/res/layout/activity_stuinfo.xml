@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".stuinfo">
+    <TextView
+        android:id="@+id/stuinfomation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+        android:text="@string/studentInfoInput_tip_text"
+        android:textColor="#3498db"
+        android:textSize="45sp" />
+
+    <EditText
+        android:id="@+id/edtstuID"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stuinfomation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:hint="@string/stu_no"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edtstuNa"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stuinfomation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+
+        android:hint="@string/stu_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edtstuclass"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stuinfomation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+
+        android:hint="@string/stu_classNum"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edtstulou"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stuinfomation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:hint="@string/stu_dormitoryNum"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edtsturoom"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stuinfomation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+
+        android:hint="@string/stu_room"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+
+        android:text="@string/ok"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="@drawable/circle_button"
+        android:onClick="btnClick"
+        tools:ignore="OnClick" />
+
+</RelativeLayout>

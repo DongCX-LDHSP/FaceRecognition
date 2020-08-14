@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.practice.facerecognition">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".changeResult" />
+        <activity
+            android:name=".lookHistoryActivity"
+            android:exported="true" />
+        <activity android:name=".stupass" />
+        <activity android:name=".stuinfo" />
+        <activity
+            android:name=".Amchange"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".FaceManageActivity" />
+        <activity android:name=".SetPasswordActivity" />
+        <activity android:name=".RegisterAndRecognizeActivity" />
+        <activity android:name=".CheckingInSearchResultActivity" />
+        <activity android:name=".CheckingInActivity" />
+        <activity android:name=".ManagerMainActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

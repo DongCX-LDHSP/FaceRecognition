@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
+    tools:context=".ManagerMainActivity"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleOnTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+        android:text="@string/login_tip_text_content"
+        android:textColor="#000"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/face_manage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/titleOnTop"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/home_face_manage_text"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"
+
+        android:onClick="faceManageButtonClick" />
+
+    <Button
+        android:id="@+id/student_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/face_manage"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/home_student_info_text"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"
+
+        android:onClick="studentInfoButtonClick"/>
+
+    <Button
+        android:id="@+id/get_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/student_info"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/get_student_info_text"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"
+
+        android:onClick="getInfoButtonClick" />
+
+    <Button
+        android:id="@+id/edit_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/get_info"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/edit_student_status_text"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"
+
+        android:onClick="editStatusButtonClick" />
+
+    <Button
+        android:id="@+id/loginOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_status"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="80dp"
+
+        android:text="@string/login_out_text"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/circle_button"
+
+        android:onClick="loginOutButtonClick" />
+
+</RelativeLayout>
