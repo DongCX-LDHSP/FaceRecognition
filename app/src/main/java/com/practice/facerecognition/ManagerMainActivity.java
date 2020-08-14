@@ -1,35 +1,13 @@
 package com.practice.facerecognition;
 
-import android.Manifest;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.arcsoft.face.ActiveFileInfo;
-import com.arcsoft.face.ErrorInfo;
-import com.arcsoft.face.FaceEngine;
-import com.arcsoft.face.enums.RuntimeABI;
-import com.practice.facerecognition.common.Constants;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import com.practice.facerecognition.util.DatabaseHelper;
 
 public class ManagerMainActivity extends AppCompatActivity {
     private Button face_manage;
@@ -37,7 +15,6 @@ public class ManagerMainActivity extends AppCompatActivity {
     private Button get_info;
     private Button edit_status;
     private Button loginOut;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +29,15 @@ public class ManagerMainActivity extends AppCompatActivity {
         edit_status = findViewById(R.id.edit_status);
         edit_status = findViewById(R.id.loginOut);
 
+        // 检查引擎状态
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        if (dbHelper.getApiInfo()[2].equals("0")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("引擎初始化")
+                    .setMessage("请进入菜单激活引擎！")
+                    .setPositiveButton(getString(R.string.ok), null)
+                    .show();
+        }
     }
 
     // 响应批量注册按钮 -> 批量注册界面
