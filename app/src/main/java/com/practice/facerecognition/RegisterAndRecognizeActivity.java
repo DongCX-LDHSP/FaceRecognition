@@ -162,7 +162,7 @@ public class RegisterAndRecognizeActivity extends BaseActivity implements ViewTr
     /**
      * 活体检测开关
      */
-    private Switch switchLivenessDetect;
+//    private Switch switchLivenessDetect;
 
     private static final int ACTION_REQUEST_PERMISSIONS = 0x001;
     /**
@@ -235,14 +235,14 @@ public class RegisterAndRecognizeActivity extends BaseActivity implements ViewTr
         faceRectView = findViewById(R.id.single_camera_face_rect_view);
 
         // todo 活体检测开关代码块
-        switchLivenessDetect = findViewById(R.id.single_camera_switch_liveness_detect);
+        /*switchLivenessDetect = findViewById(R.id.single_camera_switch_liveness_detect);
         switchLivenessDetect.setChecked(livenessDetect);
         switchLivenessDetect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 livenessDetect = isChecked;
             }
-        });
+        });*/
 
         RecyclerView recyclerShowFaceInfo = findViewById(R.id.single_camera_recycler_view_person);
         compareResultList = new ArrayList<>();

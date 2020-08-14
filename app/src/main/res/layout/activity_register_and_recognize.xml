@@ -18,13 +18,13 @@
     </FrameLayout>
 
     <!--活体检测开关-->
-    <Switch
+    <!--<Switch
         android:id="@+id/single_camera_switch_liveness_detect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_margin="@dimen/common_bottom_margin"
-        android:text="@string/liveness_detect" />
+        android:text="@string/liveness_detect" />-->
 
     <LinearLayout
         android:layout_margin="@dimen/common_bottom_margin"
