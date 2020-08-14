@@ -5,9 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import com.practice.facerecognition.util.DatabaseHelper;
+
+import io.reactivex.annotations.NonNull;
 
 public class ManagerMainActivity extends AppCompatActivity {
     private Button face_manage;
@@ -34,9 +40,52 @@ public class ManagerMainActivity extends AppCompatActivity {
         if (dbHelper.getApiInfo()[2].equals("0")) {
             new AlertDialog.Builder(this)
                     .setTitle("引擎初始化")
-                    .setMessage("请进入菜单激活引擎！")
+                    .setMessage("引擎未激活，请进入菜单激活引擎！")
                     .setPositiveButton(getString(R.string.ok), null)
                     .show();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // 绑定资源文件中创建的Menu
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.activateEngine:
+                jumpToActiveEngineActivity();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
+    // 响应管理员激活引擎菜单项 -> 激活引擎页面
+    private void jumpToActiveEngineActivity() {
+        DatabaseHelper dbHelper = new DatabaseHelper(ManagerMainActivity.this);
+        String isActivated = dbHelper.getApiInfo()[2];
+
+        // 已激活则不转入
+        if (isActivated.equals("1")) {
+            new AlertDialog.Builder(this)
+                    .setTitle("提示")
+                    .setMessage("引擎已激活，无需再次激活！")
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
+        }
+        // 未激活则转入
+        else {
+            Intent jumpToActiveEngineActivity = new Intent();
+            jumpToActiveEngineActivity.setClass(
+                    ManagerMainActivity.this,
+                    ActiveEngineActivity.class);
+            startActivity(jumpToActiveEngineActivity);
         }
     }
 
