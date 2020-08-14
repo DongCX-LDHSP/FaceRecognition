@@ -26,6 +26,9 @@
     <string name="home_face_manage_text">批量注册</string>
     <string name="get_student_info_text">查询学生信息</string>
     <string name="edit_student_status_text">修改学生状态</string>
+    <string name="app_id">APP ID</string>
+    <string name="sdk_key">SDK KEY</string>
+    <string name="do_active_engine">激活引擎</string>
 
     <!--信息录入界面-->
     <string name="studentInfoInput_tip_text">学生信息录入</string>
