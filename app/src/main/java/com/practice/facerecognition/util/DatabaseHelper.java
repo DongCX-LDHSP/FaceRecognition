@@ -6,12 +6,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import io.reactivex.annotations.Nullable;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     /**
-     * - ApiInfo(appId:text, sdkKey:text)
+     * - ApiInfo(appId:text, sdkKey:text, isActivated(值为0或1，默认值0表示未激活))
      * - Users(sNum:text, password:text, isAdmin:text(值为0或1，1表示管理员))
      * - Students(studentNum:text, name:text, classNum:text, dormitoryNum:text, roomNum:text)
      * - FaceInfo(id:Integer, studentNum:text)
@@ -22,7 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private String createApiInfoTableSql =
             "Create Table ApiInfo(" +
                     "appId text Not Null, " +
-                    "sdkKey text Not Null)";
+                    "sdkKey text Not Null, " +
+                    "isActivated text Default '0')";
 
     // 创建用户信息表
     private String createUserInfoTableSql =
@@ -62,8 +65,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "sdkKey) " +
                     "Values(?, ?)";
 
-    // 清空API信息表
-    private String clearApiInfoSql = "Delete From ApiInfo";
+    // 插入API信息
+    private String updateApiInfoSql =
+            "Update ApiInfo " +
+                    "Set appId = ?, " +
+                    "sdkKey = ?, " +
+                    "isActivated = ?";
+
+    // 更新激活结果为已激活
+    private String updateApiAsActivatedSql = "Update ApiInfo Set isActivated = ?";
+
+    // 查询API信息
+    private String selectApiInfoSql = "Select appId, sdkKey, isActivated From ApiInfo";
 
     // 插入用户信息
     public String insertUserInfoSql =
@@ -162,6 +175,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // 创建管理员账户
         createAdmin(sqLiteDatabase);
 
+        // 插入空的API信息
+        insertApiInfo(sqLiteDatabase);
+
         // todo 插入一些测试数据，测试语句，注意删除
         createTestInfo(sqLiteDatabase);
 
@@ -173,11 +189,48 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void updateApiInfo(String appId, String sdkKey) {
+    // 插入空的API信息
+    private void insertApiInfo(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(insertApiInfoSql, new String[]{"", ""});
+    }
+
+    // 更新API信息表
+    public void updateApiInfo(String appId, String sdkKey, String isActivated) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL(clearApiInfoSql);
-        db.execSQL(insertApiInfoSql, new String[]{appId, sdkKey});
+        db.execSQL(updateApiInfoSql, new String[]{appId, sdkKey, isActivated});
         db.close();
+    }
+
+    // 更新激活结果为已激活
+    public void updateApiAsActivated() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(updateApiAsActivatedSql, new String[]{"1"});
+        db.close();
+    }
+
+    // 获取API信息
+    public String[] getApiInfo() {
+        ArrayList<String> apiInfo = new ArrayList<>();
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectApiInfoSql, new String[]{});
+        for (int i = 0; cursor.moveToNext(); i++) {
+            apiInfo.add(cursor.getString(i * 3));
+            apiInfo.add(cursor.getString(i * 3 + 1));
+            apiInfo.add(cursor.getString(i * 3 + 2));
+        }
+
+        cursor.close();
+        db.close();
+
+        if (apiInfo.size() == 0) {
+            return new String[]{};
+        }
+        else {
+            return new String[]{apiInfo.get(0),
+                                apiInfo.get(1),
+                                apiInfo.get(2)};
+        }
     }
 
     // 在内部创建管理员账户
