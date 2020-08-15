@@ -11,6 +11,12 @@
 3. 赵彦哲
 4. XX
 
+## 所有仓库地址
+
+1. [Github](https://github.com/DongCX-LDHSP/FaceRecognition)
+2. [Gitee(码云)](https://gitee.com/rikdon/FaceRecognition)
+3. [Gitlab](https://gitlab.com/Rik-Don/facerecognition)
+
 ## 应用背景
 
 随着时代的发展，学生人数日益增加，各大学校人员管理面临巨大的挑战，对学生考勤有着新的需求。人工考勤效率低、人为误差大、造成人力物力的浪费，已经不再适应时代的发展，随着计算机技术的发展，利用人脸识别对学校考勤有着高效的帮助，提高了工作效率和准确率。
