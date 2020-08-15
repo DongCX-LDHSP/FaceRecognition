@@ -11,9 +11,9 @@
 
 ## 所有仓库地址
 
-1. [Github](https://github.com/DongCX-LDHSP/FaceRecognition)
-2. [Gitee(码云)](https://gitee.com/rikdon/FaceRecognition)
-3. [Gitlab](https://gitlab.com/Rik-Don/facerecognition)
+1. `Github`：[点此前往](https://github.com/DongCX-LDHSP/FaceRecognition)，可在该仓库获取发行版
+2. `Gitee`：[点此前往](https://gitee.com/rikdon/FaceRecognition)，政策限制，不绑定手机号无法上传附件，故无发行版
+3. `Gitlab`：[点此前往](https://gitlab.com/Rik-Don/facerecognition)，受限于上传文件大小，无发行版
 
 ## 应用背景
 
