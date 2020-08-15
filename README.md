@@ -135,7 +135,7 @@
 
 3. 点击右上角菜单中的激活引擎
 
-    <img src=".\ImagesForReadme\点击菜单.png" alt="点击菜单中的激活引擎" style="zoom:55%;" />
+    <img src="./ImagesForReadme/点击菜单.png" alt="点击菜单中的激活引擎" style="zoom:55%;" />
 
 4. 输入`APP ID`和`SDK KEY`
 
