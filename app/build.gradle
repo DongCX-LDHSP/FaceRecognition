@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId 'com.practice.facerecognition'
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 3
         versionName "2.2"
