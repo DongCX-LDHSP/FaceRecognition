@@ -192,3 +192,34 @@
         3. 当检测到未知人脸时，并且人脸库中尚无当前登录用户的人脸信息，则可以进行注册
     3. 切换相机，切换前后置相机
 2. 查看签到记录，用于让学生查看核对自己的签到结果
+
+## 目录结构介绍
+
+`./`表示`com.practice.facerecognition`
+
+1. `./faceserver/`：该包是人脸识别API需要的包，直接由官方Demo项目移植而来
+2. `./model/`：该包是人脸识别API需要的包，直接由官方Demo项目移植而来
+3. `./util/`
+    1. `./camera/`：该包是人脸识别API需要的包，直接由官方Demo项目移植而来
+    2. `./face/`：该包是人脸识别API需要的包，直接由官方Demo项目移植而来
+    3. `ConfigUtil.java`：该类是人脸识别API需要的类，直接由官方Demo项目移植而来
+    4. `DatabaseHelper.java`：该类是数据库操作类，负责创建数据库表，并对外提供一些操作的接口，还负责向数据库表中插入测试数据
+    5. `DrawHelper.java`：该类是人脸识别API需要的类，直接由官方Demo项目移植而来
+    6. `TrackUtil.java`：该类是人脸识别API需要的类，直接由官方Demo项目移植而来
+4. `./widget/`：该包是人脸识别API需要的包，直接由官方Demo项目移植而来
+5. `./ActiveEngineActivity.java`：该类是激活引擎页面的代码
+6. `./Amchange.java`：该类是管理员点击`修改学生信息`后跳转到的**输入学生学号**的页面
+7. `./BaseActivity.java`：该类是由官方Demo项目移植而来，是Demo项目`activity`包里所有类的超类
+8. `./changeResult.java`：该类是在**修改学生信息**时**输入学生学号**后跳转到的页面，在这里真正的**修改签到结果**
+9. `./CheckingInActivity.java`：该类是在`查询学生信息`时，让用户选择宿舍及查询类型的页面
+10. `./CheckingInSearchResultActivity.java`：该类是在**选择宿舍和查询类型**后跳转到的查询结果页面
+11. `./FaceManageActivity.java`：该类是由官方Demo项目移植而来，基于项目需求进行了改写，负责**批量注册**和**清空人脸库**
+12. `./LoginActivity.java`：该类是登陆页面，会对用户类型进行判断，然后分别跳转到**管理员主页面**和**学生主页面**
+13. `./lookHistoryActivity.java`：该类是学生主页面的**查看签到记录**页面
+14. `./MainActivity.java`：该类是学生主页面
+15. `./ManagerMainActivity.java`：该类是管理员主页面
+16. `./RegisterAndRecognizeActivity.java`：该类是学生主页面点击**人脸签到**后进入的页面，可以进行**单个人脸注册**和**签到**
+17. `./SetPasswordActivity.java`：该类是登陆界面点击**找回密码**后跳转到的页面，负责**重置密码**
+18. `./stuinfo.java`：该类是管理员主页面点击**学生信息录入**后进入的第一个界面，负责**录入学生的基本信息**
+19. `./stupass.java`：该类是**录入了学生的基本信息**后跳转到的页面，负责**给学生用户设置登录密码**
+20. `./WelcomeActivity.java`：该类是欢迎页面
