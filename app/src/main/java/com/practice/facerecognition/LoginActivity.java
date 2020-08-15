@@ -33,10 +33,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
-
-        // todo:为方便测试，自动输入测试用户信息
-        usernameEditText.setText(R.string.test_username);
-        passwordEditText.setText(R.string.test_password);
     }
 
     public void loginButtonClick(View view) {

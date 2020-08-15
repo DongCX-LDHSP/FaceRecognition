@@ -9,10 +9,6 @@
     <string name="login_username_text">学工号</string>
     <string name="login_password_text">密码</string>
 
-    <!--测试管理员用户信息-->
-    <string name="test_username">100000001</string>
-    <string name="test_password">abc</string>
-
     <!--学生主界面菜单-->
     <string name="home_activate_engine_text">激活引擎</string>
 
