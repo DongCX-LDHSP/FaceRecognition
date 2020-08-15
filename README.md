@@ -114,7 +114,7 @@
 
 ### 系统要求
 
-1. Android `API Level 21` - `API Level `28
+1. Android `API Level 21` - `API Level 28`
 2. `Android 5.0` - `Android 9`
 
 ### 使用准备
