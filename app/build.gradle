@@ -8,8 +8,8 @@ android {
         applicationId 'com.practice.facerecognition'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "2.2"
+        versionCode 4
+        versionName "2.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
